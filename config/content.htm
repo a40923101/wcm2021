@@ -1,2 +1,265 @@
-<h1>About</h1>
-<p>cmsimde_site</p>
+<h1>關於</h1>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">倉庫：</span><a href="https://github.com/mdecourse/cmstemplate"><span style="vertical-align: inherit;">https</span></a><span style="vertical-align: inherit;"> : </span></span><a href="https://github.com/mdecourse/cmstemplate"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">//github.com/mdecourse/cmstemplate</span></span></a></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">GitHub頁面：</span><a href="https://mde.tw/cmstemplate"><span style="vertical-align: inherit;">https</span></a><span style="vertical-align: inherit;"> : </span></span><a href="https://mde.tw/cmstemplate"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">//mde.tw/cmstemplate</span></span></a></p>
+<p>利用 cmstemplate 建立以 CMSiMDE 作為子模組的動態與靜態網站方法為:</p>
+<ol>
+<li>登入 Github 帳號</li>
+<li>將瀏覽器指向 <a href="https://github.com/mdecourse/cmstemplate">https://github.com/mdecourse/cmstemplate</a></li>
+<li>利用 <span style="background-color: #00ff00;">Use this template</span> 按鈕建立倉儲</li>
+</ol>
+<p>clone 帶有 CMSiMDE 的指令:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">git clone --recurse-submodules URL</span></span></pre>
+<p>上述 URL 即為希望將倉儲資料取下進行改版的 Github 倉儲網路統一資源位置, 也就是 Github 倉儲網址.</p>
+<p>每一個以 cmstemplate 為 template 的倉儲, 其根目錄都帶有:</p>
+<ol>
+<li><span style="background-color: #ffff99;">init.py</span> - 其中的 site_title, ip 與 port 可以讓使用者自行修改, site_title 是網站標題, ip 為動態網站啟動時所使用的網路位址, 可設為內部或外部 IPv4 (IPv6), port 則是動態網站啟動時所佔用的埠號.</li>
+<li><span style="background-color: #ffff99;">http-server.py</span> - 執行後會使用內建的 localhost 與 port 8444 伺服 content 子目錄中的 CMSiMDE 靜態網頁.</li>
+<li><span style="background-color: #ffff99;">cms.bat</span> - 讓使用者執行動態網站用的批次檔案.</li>
+<li><span style="background-color: #ffff99;">acp.bat</span> - 若使用者已經將倉儲設為 ssh 連線, 且提供遠端與近端的認證模式, 則可以在執行此批次指令之後加上提交字串, 即可執行 git add ., git commit -m "提交訊息", 以及 git push 等三個指令.</li>
+</ol>
+<h1>筆記</h1>
+<h2>9443</h2>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">先打指令 </span></span><span style="background-color: #ffff99;"><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">c</span></span><span style="background-color: #ffff99;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">d tmp</span></span></span></strong></span></p>
+<p>再打 <span style="background-color: #ffff99;"><strong>cd wcm2021</strong></span><strong><em> </em></strong>(自己的名稱)</p>
+<p>然後打 <span style="background-color: #ffff99;"><strong>cms</strong></span><em><strong> </strong></em>(更新後設置在wcm2021所以直接打cms)</p>
+<p>就會得到網址 <span style="background-color: #ccffcc;"><a href="/複製下來" style="background-color: #ccffcc;">https://127.0.0.1:9443/</a></span> 複製下來</p>
+<p><img alt="" height="261" src="/images/01.png" width="500"/></p>
+<p>按 <strong>login </strong>登入(密碼 <span style="background-color: #cc99ff;">admin</span> )</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"></span></span></p>
+<h2>上傳</h2>
+<p>方法一</p>
+<p>先進到9443</p>
+<p><strong><span style="background-color: #ffff99;">git add .</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">git commit -m "此更新的主旨"</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">git push</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">輸入帳號(學號)</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">輸入密碼</span></strong></p>
+<p>方法二 啟用<strong>ssh</strong></p>
+<p><strong><span style="background-color: #ffff99;">git add .</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">git commit -m "此更新的主旨"</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">git push</span></strong></p>
+<p>兩者的差距是需不需要密碼，使用ssh就會比較方便，不用每次上傳都要打密碼</p>
+<p><span style="background-color: #ffff99;"><img alt="" height="263" src="/images/30.png" width="500"/></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> </span></span></p>
+<h2>SSH</h2>
+<p>點選資料夾<strong> date</strong> 的<strong> PuTTy</strong> <span>的 </span><strong>puttygen.exe</strong></p>
+<p><img alt="" height="256" src="/images/6.png" width="500"/></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">按下 </span></span><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Generate</span></span></strong></p>
+<p><img alt="" height="490" src="/images/3.png" width="500"/></p>
+<p>接著把它複製下來</p>
+<p><img alt="" height="472" src="/images/4.png" width="479"/></p>
+<p>然後開啟自己的<strong> github</strong> 的 <strong>settings</strong> 按下 <strong>SSH and GPG keys</strong></p>
+<p><img alt="" height="350" src="/images/7.png" width="500"/></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">新增 </span></span><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">New SSH key</span></span></strong></p>
+<p><img alt="" height="370" src="/images/8.png" width="500"/></p>
+<p>把剛剛複製的貼上去後，按下 <strong>Add SSH key</strong></p>
+<p><img alt="" height="351" src="/images/9.png" width="500"/></p>
+<p>以上設定好後按下 <strong>Save private key</strong></p>
+<p><img alt="" height="494" src="/images/10.png" width="500"/></p>
+<p>打上檔案名稱 (要在後面打上 <strong>.ppk)</strong></p>
+<p><img alt="" height="282" src="/images/11.png" width="500"/></p>
+<p>接著再開啟 <span><strong>date </strong>的 <strong>PuTTy </strong></span><span>的 </span><strong>putty.exe </strong></p>
+<p><strong><img alt="" height="281" src="/images/24.png" width="500"/></strong></p>
+<p>點選 <strong>github.com </strong>並按下 <strong>Load</strong></p>
+<p><img alt="" height="490" src="/images/27.png" width="500"/></p>
+<p>再去 <strong>Proxy </strong>設定網路位置</p>
+<p><img alt="" height="488" src="/images/28.png" width="500"/></p>
+<p>然後去 <strong>Auth </strong>按 <strong>Browse </strong>選取剛處存的檔案</p>
+<p><img alt="" height="500" src="/images/26.png" width="500"/></p>
+<p>最後按下 <strong>Save </strong>就完成了</p>
+<p><img alt="" height="488" src="/images/15.png" width="500"/></p>
+<p>最後一個步驟去檢查 <strong>SSH </strong>是否成功</p>
+<p><img alt="" height="242" src="/images/16.png" width="500"/></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"></span></span></p>
+<h2>更新</h2>
+<p>更新過後9443在寫內容時，可以不需要連網路</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">先打 </span></span><span style="background-color: #ffff99;"><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">cd tmp</span></span></strong></span></p>
+<p>再來 <strong><span style="background-color: #ffff99;">cd wcm2021</span></strong></p>
+<p>接著 <strong><span style="background-color: #ffff99;">cd cmsimde</span></strong></p>
+<p>最後 <strong><span style="background-color: #ffff99;">git pull origin master</span></strong></p>
+<p><strong><span style="background-color: #ffff99;"><img alt="" height="261" src="/images/2.png" width="500"/></span></strong></p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> </span></span></strong></p>
+<h2>Heroku</h2>
+<p>先建立自己 <strong>Heroku </strong>的帳號<span>，</span>登入後建立第一個 <strong>app</strong></p>
+<p><img alt="" height="281" src="/images/25.png" width="500"/></p>
+<p><span>下載<strong> Heroku CLI </strong>程式檔案，解壓縮至隨身碟裡面</span></p>
+<p><span></span></p>
+<p><span>修改命令搜尋路徑，將<strong> heroku.exe</strong> 設置在 <strong>date</strong></span></p>
+<p><span><img alt="" height="272" src="/images/29.png" width="500"/></span></p>
+<p>把 <strong>stare_ivp6</strong> 拉進小白窗，複製進去</p>
+<p><span style="background-color: #ccffcc;"><b>REM for heroku login<br/>set HTTP_PROXY=http://[2001:288:6004:17::53]:3128<br/>set HTTPS_PROXY=http://[2001:288:6004:17::53]:3128</b></span></p>
+<p><strong><img alt="" height="652" src="/images/23.png" width="500"/></strong></p>
+<p>然後重啟小黑窗</p>
+<p><span style="vertical-align: inherit;">先打 </span><span style="background-color: #ffff99;"><strong><span style="vertical-align: inherit;">cd tmp</span></strong></span></p>
+<p>再來 <strong><span style="background-color: #ffff99;">cd wcm2021</span></strong></p>
+<p>接著 <span style="background-color: #ffff99;"><b>heroku login -i</b></span></p>
+<p>之後打上你的 <strong>heroku</strong> 帳後及密碼</p>
+<p>然後 <b><span style="background-color: #ffff99;">heroku login -a a40923101</span> </b>(a40923101建立app的名稱)</p>
+<p>最後 <span style="background-color: #ffff99;"><strong>git push heroku</strong></span></p>
+<p><img alt="" height="531" src="/images/22.png" width="500"/></p>
+<h2>Heroku倉儲上傳</h2>
+<p>因為不是連接學校網路，所以在heroku那兩行前面加上<strong>REM</strong></p>
+<p><img alt="" height="599" src="/images/59.png" width="500"/></p>
+<p>按下 <strong>Save</strong></p>
+<p><img alt="" height="598" src="/images/60.png" width="500"/></p>
+<p>到小黑窗打</p>
+<p><span style="background-color: #ffff99;"><strong>cd</strong><span> </span><strong>tmp</strong></span></p>
+<p><span style="background-color: #ffff99;"><strong>cd</strong><span> </span><strong>wcm2021</strong></span></p>
+<p><strong><span style="background-color: #ffff99;">git branch</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">git push heroku</span></strong></p>
+<p><img alt="" height="262" src="/images/58.png" width="500"/></p>
+<h2>網路設置密碼</h2>
+<p>先設定網路密碼</p>
+<p>開啟<strong> PuTTY</strong> 的<strong> putty.exe</strong></p>
+<p><img alt="" height="487" src="/images/31.png" width="500"/></p>
+<p>打上網路設置的密碼和帳號</p>
+<p><img alt="" height="490" src="/images/32.png" width="500"/></p>
+<p><span>然後去 </span><strong>Auth </strong><span>按 </span><strong>Browse </strong><span>選取之前處存的檔案</span></p>
+<p><img alt="" height="490" src="/images/33.png" width="500"/></p>
+<p>在小黑窗打 <strong><span style="background-color: #ffff99;">regedit</span></strong></p>
+<p><img alt="" height="335" src="/images/34.png" width="500"/></p>
+<p>會跳出登入編輯程式，電腦\HKEY_CURRENT_USER\SOFTWARE\SimonTatham按下匯出</p>
+<p><img alt="" height="294" src="/images/35.png" width="500"/></p>
+<p>匯出在隨身碟的Date(名稱.reg)dsfsafd</p>
+<p><img alt="" height="449" src="/images/37.png" width="500"/></p>
+<p>然後打上<strong> </strong><span style="background-color: #ffff99;"><strong>reg import y:\w10s.reg</strong></span></p>
+<p><img alt="" height="324" src="/images/38-.png" width="500"/></p>
+<p>把 <strong>home_ipv6 </strong>的 .<strong>gitconfig</strong> 抓進小白窗修改 <strong>Proxy</strong></p>
+<p><img alt="" height="652" src="/images/36.png" width="500"/></p>
+<p></p>
+<h2>RoboDK</h2>
+<p>下載 <strong>robodk522_portable.7z</strong> 解壓縮</p>
+<p><img alt="" height="436" src="/images/39.png" width="500"/></p>
+<p>按下 <strong>robodk522_portable</strong> 的 <strong>bin</strong> 開啟 <strong>RoboDK.exe</strong></p>
+<p><img alt="" height="324" src="/images/40.png" width="500"/></p>
+<p>點取 <strong>examples</strong> 的<strong> pick_and_place</strong> 選取所有檔案開啟機械手臂</p>
+<p><img alt="" height="281" src="/images/41.png" width="500"/></p>
+<p>在小黑窗輸入 <strong><span style="background-color: #ffff99;">pip install robodk</span></strong> (輸入時要關閉網路)</p>
+<p><img alt="" height="261" src="/images/42.png" width="500"/></p>
+<p>把 <strong>pick_and_place.py</strong> 拉進小白窗並按下 <strong>Go</strong></p>
+<p><img alt="" height="281" src="/images/43.png" width="500"/></p>
+<p>接著機械手臂就會啟動</p>
+<p><img alt="" height="281" src="/images/44.png" width="500"/></p>
+<h2>Fossil</h2>
+<p>下載Fossil</p>
+<p><img alt="" height="283" src="/images/45.png" width="500"/></p>
+<p>fossil解壓縮到y槽</p>
+<p><img alt="" height="301" src="/images/46.png" width="500"/></p>
+<p>建立資料夾</p>
+<p><strong><span style="background-color: #ffff99;">mkdir fossil</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">cd fossil</span></strong></p>
+<p>打上 <strong><span style="background-color: #ffff99;">fossil clone https://40923101@fossil.kmol.info/u/40923101 40923101.fossil</span></strong></p>
+<p><b>打上密碼，問你要不要記住密碼</b><b> </b><span style="background-color: #ffff99;"><b>y</b></span></p>
+<p><img alt="" height="260" src="/images/48.png" width="500"/></p>
+<p>查看fossil資料夾裡面有沒有 <strong>40923101.fossil</strong></p>
+<p><img alt="" height="360" src="/images/49.png" width="500"/></p>
+<p>再次建立資料夾</p>
+<p><strong><span style="background-color: #ffff99;">mkdir wd</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">cd wd</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">mkdir 40923101</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">cd 40923101</span></strong></p>
+<p>然後<strong> </strong><span style="background-color: #ffff99;"><strong>fossil open ./../../40923101.fossil</strong></span></p>
+<p><img alt="" height="95" src="/images/50.png" width="500"/></p>
+<p>查看40923101資料夾裡面有沒有 <strong>FOSSIL</strong></p>
+<p><img alt="" height="281" src="/images/51.png" width="500"/></p>
+<p><strong><span style="background-color: #ffff99;">cd ..</span></strong> 退回wd</p>
+<p><strong><span style="background-color: #ffff99;">git clone --recurse-submodules https://github.com/40923101/wcm2021.git</span></strong></p>
+<p><img alt="" height="183" src="/images/52.png" width="500"/></p>
+<p>複製wcm2021裡的資料到40923101資料夾內</p>
+<p><img alt="" height="367" src="/images/53.png" width="500"/></p>
+<p><strong><span style="background-color: #ffff99;">fossil add .</span></strong></p>
+<p><img alt="" height="262" src="/images/54.png" width="500"/></p>
+<p><span style="background-color: #ffff99;"><strong>fossil commit -m "inital add"</strong></span></p>
+<p>問要下載全部嗎 <span style="background-color: #ffff99;"><strong>a</strong></span></p>
+<p><img alt="" height="113" src="/images/55.png" width="500"/></p>
+<p>完成後就可以查看倉儲 https://fossil.kmol.info/u/40923101/doc/trunk/index.html</p>
+<p><img alt="" height="281" src="/images/56.png" width="500"/></p>
+<p></p>
+<h1>分組專題</h1>
+<h2>教室課表查詢</h2>
+<p>先複製指令到小白窗，然後修改兩個想查詢的教室名稱</p>
+<p><img alt="" height="943" src="/images/17.png" width="500"/></p>
+<p>接著另存 <strong>Save </strong>下來</p>
+<p><img alt="" height="281" src="/images/20.png" width="500"/></p>
+<p>存在隨身碟裡面的 <strong>downloads</strong></p>
+<p><img alt="" height="272" src="/images/18.png" width="500"/></p>
+<p>然後按下 <strong>Go </strong>啟動</p>
+<p><img alt="" height="583" src="/images/21.png" width="500"/></p>
+<p>就會出現查詢的教室課表</p>
+<p><img alt="" height="494" src="/images/19.png" width="500"/></p>
+<p></p>
+<h1>期末項目</h1>
+<h2>網路環境</h2>
+<p>先檢查電腦有沒有連上網路</p>
+<p>如果還是無法上網去設定的網路和網際網路查看</p>
+<p>把手動Proxy設定開啟</p>
+<p>如在學校可看連接埠是69或是53</p>
+<p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/jepM_4JSdl0" width="560"></iframe></span></p>
+<h2>Heroku 網站</h2>
+<p>先建立自己 <strong>Heroku </strong>的帳號<span>，</span>登入後建立第一個<span> </span><strong>app</strong></p>
+<p><img alt="" height="281" src="/images/25.png" width="500"/></p>
+<p><span>下載<strong><span> </span>Heroku CLI </strong>程式檔案，解壓縮至隨身碟裡面</span></p>
+<p><span></span></p>
+<p><span>修改命令搜尋路徑，將<strong><span> </span>heroku.exe</strong><span> </span>設置在 <strong>date</strong></span></p>
+<p><span><img alt="" height="272" src="/images/29.png" width="500"/></span></p>
+<p>把<span> </span><strong>stare_ivp6</strong><span> </span>拉進小白窗，複製進去</p>
+<p><span style="background-color: #ccffcc;"><b>REM for heroku login<br/>set HTTP_PROXY=http://[2001:288:6004:17::53]:3128<br/>set HTTPS_PROXY=http://[2001:288:6004:17::53]:3128</b></span></p>
+<p><strong><img alt="" height="652" src="/images/23.png" width="500"/></strong></p>
+<p>然後重啟小黑窗</p>
+<p><span style="vertical-align: inherit;">先打 </span><span style="background-color: #ffff99;"><strong><span style="vertical-align: inherit;">cd tmp</span></strong></span></p>
+<p>再來 <strong><span style="background-color: #ffff99;">cd wcm2021</span></strong></p>
+<p>接著 <span style="background-color: #ffff99;"><b>heroku login -i</b></span></p>
+<p>之後打上你的<span> </span><strong>heroku</strong><span> </span>帳後及密碼</p>
+<p>然後 <b><span style="background-color: #ffff99;">heroku login -a a40923101</span> </b>(a40923101建立app的名稱)</p>
+<p>最後 <span style="background-color: #ffff99;"><strong>git push heroku</strong></span></p>
+<p><img alt="" height="531" src="/images/22.png" width="500"/></p>
+<p>Heroku倉儲上傳因為不是連接學校網路，所以在heroku那兩行前面加上<strong>REM</strong></p>
+<p><img alt="" height="599" src="/images/59.png" width="500"/></p>
+<p>按下 <strong>Save</strong></p>
+<p><img alt="" height="598" src="/images/60.png" width="500"/></p>
+<p>到小黑窗打</p>
+<p><span style="background-color: #ffff99;"><strong>cd</strong><span> </span><strong>tmp</strong></span></p>
+<p><span style="background-color: #ffff99;"><strong>cd</strong><span> </span><strong>wcm2021</strong></span></p>
+<p><strong><span style="background-color: #ffff99;">git branch</span></strong></p>
+<p><strong><span style="background-color: #ffff99;">git push heroku</span></strong></p>
+<p><img alt="" height="262" src="/images/58.png" width="500"/></p>
+<p>就可以看到倉儲同步</p>
+<p><img alt="" height="281" src="/images/61.png" width="500"/></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/maESTMRatR4" width="560"></iframe></p>
+<p><span></span></p>
+<h2>網路直播</h2>
+<p>開啟 YouTube 直播功能查看右上方確認是否使用 Google 帳號登入。</p>
+<p>確認後請點選右上方<strong>攝影機</strong>按鈕，選取<strong>進行直播</strong>。</p>
+<p>如果是第一次使用直播功能，Youtube會先進行兩步驟的帳戶認證，完成認證後，需請等 24 小時啟用直播功能。</p>
+<p>若非第一次使用 Youtube 直播功能，或已完成認證並隔了 24 小時，請再次在 Youtube 首頁點選<strong>攝影機</strong>按鈕，選擇<strong>進行直播</strong>。</p>
+<p>欄位填寫說明完成後，送出後畫面上將出現<strong>串流設定說明</strong>，請先停在此步驟，並開啟 <strong>OBS</strong>。</p>
+<p>開啟 OBS 後，請點選<strong>設定─串流</strong>，選取<strong>YouTube/Youtube Gaming</strong>，伺服器點選<strong>Primary YouTube ingest sever</strong>，並將剛才上圖 YouTube 提供的串流金鑰貼到 <strong>OBS</strong> 的串流金鑰欄位，完成後按下<strong>套用</strong>以及<strong>確定</strong>。</p>
+<p><strong><span style="color: #ff0000;">注意事項</span></strong></p>
+<p><span>第一次使用直播功能，需要進行兩步驟的帳戶認證，完成認證後，要再等 24 小時候才可以使用直播功能。</span></p>
+<p>如果要用手機開<span>YouTube</span>直播需要訂閱數1000人才可進行直播</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/r4u1j-zXX2I" width="560"></iframe></p>
+<p></p>
+<p>。</p>
+<p><span></span></p>
+<h2>RoboDK 執行</h2>
+<p>下載<span> </span><strong>robodk522_portable.7z</strong><span> </span>解壓縮</p>
+<p><img alt="" height="436" src="/images/39.png" width="500"/></p>
+<p>按下 <strong>robodk522_portable</strong><span> </span>的<span> </span><strong>bin</strong><span> </span>開啟<span> </span><strong>RoboDK.exe</strong></p>
+<p><img alt="" height="324" src="/images/40.png" width="500"/></p>
+<p>點取<span> </span><strong>examples</strong><span> </span>的<strong><span> </span>pick_and_place</strong><span> </span>選取所有檔案開啟機械手臂</p>
+<p><img alt="" height="281" src="/images/41.png" width="500"/></p>
+<p>在小黑窗輸入<span> </span><strong><span>pip install robodk</span></strong><span> </span>(輸入時要關閉網路)</p>
+<p><img alt="" height="261" src="/images/42.png" width="500"/></p>
+<p>把<span> </span><strong>pick_and_place.py</strong><span> </span>拉進小白窗並按下<span> </span><strong>Go</strong></p>
+<p><img alt="" height="281" src="/images/43.png" width="500"/></p>
+<p>接著機械手臂就會啟動</p>
+<p><img alt="" height="281" src="/images/44.png" width="500"/></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/PysXNw5wIVY" width="560"></iframe></p>
+<h1>備忘錄</h1>
+<p>打開倉儲 <strong>40923101.github.io/wcm2021</strong></p>
+<p>螢幕錄影 <strong>Shift+Print Scr</strong> 選整個螢幕</p>
+<p>網路帳號<strong> kmolab</strong> 密碼<strong> kmolab週</strong></p>
+<p>下載點 <strong>a.kmol.info:88</strong></p>
+<p>heroku倉儲<strong><span> </span><a href="http://a40923101.herokuapp.com">http://a40923101.herokuapp.com</a> </strong></p>
+<p>利用Fossil來開啟倉儲<strong> </strong><strong><a href="https://fossil.kmol.info/u/40923101/doc/trunk/index.html">https://fossil.kmol.info/u/40923101/doc/trunk/index.html</a></strong></p>
+<p>Fossil網站 <strong><a href="https://fossil.kmol.info/u/40923101/doc/trunk/index.html">https://fossil.kmol.info/u/40923101</a></strong></p>
